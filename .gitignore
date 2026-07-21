@@ -1,0 +1,9 @@
+build/
+*.o
+*.a
+*.out
+*.gcda
+*.gcno
+.vscode/
+.idea/
+compile_commands.json
