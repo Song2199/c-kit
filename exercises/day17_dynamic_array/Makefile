@@ -4,7 +4,10 @@ CFLAGS = -std=c11 -Wall -Wextra -Werror
 TARGET = test_int_vector
 OBJS = int_vector.o test_int_vector.o
 
-.PHONY: all test clean
+SANITIZE_TARGET = test_int_vector_sanitize
+SANITIZE_FLAGS = -g -fsanitize=address,undefined -fno-omit-frame-pointer
+
+.PHONY: all test sanitize clean
 
 all: $(TARGET)
 
@@ -20,5 +23,11 @@ test_int_vector.o: test_int_vector.c int_vector.h
 test: $(TARGET)
 	./$(TARGET)
 
+sanitize:
+	$(CC) $(CFLAGS) $(SANITIZE_FLAGS) \
+		int_vector.c test_int_vector.c \
+		-o $(SANITIZE_TARGET)
+	./$(SANITIZE_TARGET)
+
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f $(OBJS) $(TARGET) $(SANITIZE_TARGET)

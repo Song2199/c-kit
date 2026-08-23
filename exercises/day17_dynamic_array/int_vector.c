@@ -77,3 +77,30 @@ int int_vector_get(const IntVector *vector,size_t index,int *out_value)
 
     return 1;
 }
+int int_vector_set(IntVector *vector,size_t index,int value)
+{
+    if(vector == NULL || vector->data == NULL)
+    {
+        return 0;
+    }
+    if(index>=vector->size)
+    {
+        return 0;
+    }
+    vector->data[index]=value;
+    return 1;
+}
+int int_vector_pop(IntVector *vector,int *out_value)
+{
+    if(vector == NULL || vector->data == NULL || out_value == NULL)
+    {
+        return 0;
+    }
+    if(vector->size == 0u)
+    {
+        return 0;
+    }
+    *out_value = vector->data[vector->size - 1u];
+    vector->size--;
+    return 1;
+}
