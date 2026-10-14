@@ -19,3 +19,19 @@ return 0
 
 成功:
 return 1
+
+## Day21
+
+新增 Vector API:
+
+- vector_destroy()
+  - 释放动态内存
+  - 重置状态
+
+- vector_get()
+  - 安全读取元素
+  - 越界返回失败
+
+- vector_set()
+  - 修改已有元素
+  - 不支持插入新元素

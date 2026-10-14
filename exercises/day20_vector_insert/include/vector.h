@@ -36,5 +36,17 @@ void print_vector(
     IntVector *v
 );
 
+void vector_destroy(
+    IntVector *v);
 
+int vector_get(
+    IntVector *v,
+    size_t index,
+    int *out
+);
+int vector_set(
+    IntVector *v,
+    size_t index,
+    int value
+);
 #endif

@@ -89,5 +89,54 @@ if(v->size == v->capacity)
 
 return 1;
 
+}
+void vector_destroy(IntVector *v)
+{
+    if(v == NULL)
+    {
+        return;
+    }
+    free(v->data);
 
+    v->data = NULL;
+    v->capacity = 0;
+    v->size = 0;
+}
+int vector_get(
+    IntVector *v,
+    size_t index,
+    int *out
+)
+{
+    if(v == NULL || out == NULL)
+    {
+        return 0;
+    }
+    if(index >= v->size)
+    {
+        return 0;
+    }
+    *out = v->data[index];
+    return 1 ;
+}
+
+int vector_set(
+    IntVector *v,
+    size_t index,
+    int value
+)
+{
+    if(v == NULL)
+    {
+        return 0;
+    }
+
+    if(index >= v->size)
+    {
+        return 0;
+    }
+
+    v->data[index] = value;
+
+    return 1;
 }
