@@ -31,6 +31,16 @@ set_result = vector_set(&v,99,100);
 printf("invalid set result=%d\n", set_result);
 print_vector(&v);
 
+printf("vector_size = %zu\n",vector_size(&v));
+
+printf("vector_capacity = %zu\n",vector_capacity(&v));
+
+printf("vector_empty(nonempty) = %d\n",vector_empty(&v));
+
+IntVector empty_v;
+vector_init(&empty_v,4);
+printf("vector_empty(empty) = %d\n",vector_empty(&empty_v));
+
     vector_destroy(&v);
 
 printf("after destory:\n");
@@ -44,6 +54,7 @@ printf("capacity=%zu\n",v.capacity);
     print_vector(&v);
 
     free(v.data);
+
 
     return 0;
 }

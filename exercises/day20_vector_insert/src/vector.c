@@ -140,3 +140,27 @@ int vector_set(
 
     return 1;
 }
+size_t vector_size(const IntVector *v)
+{
+    if(v == NULL)
+    {
+        return 0;
+    }
+    return v->size;
+}
+size_t vector_capacity(const IntVector *v)
+{
+    if(v == NULL)
+    {
+        return 0;
+    }
+    return v->capacity;
+}
+int vector_empty(const IntVector *v)
+{
+    if(v == NULL)
+    {
+        return 0;
+    }
+    return v->size == 0;
+}

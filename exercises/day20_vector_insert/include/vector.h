@@ -49,4 +49,10 @@ int vector_set(
     size_t index,
     int value
 );
+size_t vector_size(const IntVector *v);
+
+size_t vector_capacity(const IntVector *v);
+
+int vector_empty(const IntVector *v);
+
 #endif

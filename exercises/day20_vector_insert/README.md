@@ -35,3 +35,22 @@ return 1
 - vector_set()
   - 修改已有元素
   - 不支持插入新元素
+
+  ## Day22 - Vector API and Automated Tests
+
+### New APIs
+- vector_size(): Get the number of valid elements.
+- vector_capacity(): Get the allocated capacity.
+- vector_empty(): Check whether the vector is empty.
+
+### Automated Tests
+- Initialization
+- Element insertion
+- Automatic capacity expansion
+- Data integrity after expansion
+- Out-of-range get/set
+- Vector destruction
+
+### Verification
+- All assertions passed.
+- AddressSanitizer and UndefinedBehaviorSanitizer tests passed.
