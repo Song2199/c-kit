@@ -114,9 +114,34 @@ assert(vector_capacity(&v) == 8);
 assert(vector_remove(&v, 0) == 0);
 assert(vector_size(&v) == 0);
 
+assert(int_vector_insert(&v,0,10)==1);
+assert(int_vector_insert(&v,1,20)==1);
+assert(int_vector_insert(&v, 2, 30) == 1);
+
+assert(vector_size(&v)==3);
+assert(vector_clear(&v)==1);
+
+assert(vector_size(&v)==0);
+assert(vector_capacity(&v) == 8);
+assert(vector_empty(&v) == 1);
+// 清空后重新插入元素
+assert(int_vector_insert(&v, 0, 99) == 1);
+int actual = 0;
+
+assert(vector_get(&v, 0, &actual) == 1);
+assert(actual == 99);
+
+assert(vector_clear(NULL) == 0);
     vector_destroy(&v);
 
-    printf("ALL tests passed!\n");
+// 销毁后不能再次清空
+assert(vector_clear(&v) == 0);
 
-    return 0;
+// 销毁后状态保持不变
+assert(v.data == NULL);
+assert(v.size == 0);
+assert(v.capacity == 0);
+
+    printf("ALL tests passed!\n");
+return 0;
 }

@@ -182,3 +182,12 @@ int vector_remove(IntVector *v,size_t index)
     return 1;
 
 }
+int vector_clear(IntVector *v)
+{
+    if(v == NULL || v->data == NULL )
+    {
+        return 0;
+    }
+    v->size = 0;
+    return 1;
+}

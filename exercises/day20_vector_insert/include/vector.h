@@ -57,4 +57,6 @@ int vector_empty(const IntVector *v);
 
 int vector_remove(IntVector *v,size_t index);
 
+int vector_clear(IntVector *v);
+
 #endif

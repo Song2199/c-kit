@@ -69,3 +69,25 @@ return 1
 ### Verification
 - All assertions passed.
 - AddressSanitizer and UndefinedBehaviorSanitizer tests passed.
+
+## Day24 - Vector Clear
+
+### New API
+- vector_clear(): Clear all valid elements without freeing memory.
+
+### Behavior
+- Set size to 0.
+- Keep capacity unchanged.
+- Preserve allocated memory for future insertions.
+- Return 1 on success, 0 for invalid or destroyed vectors.
+
+### Automated Tests
+- Clear a non-empty vector
+- Insert new elements after clearing
+- Clear repeatedly
+- Reject NULL pointers
+- Reject clearing after destruction
+
+### Verification
+- All assertions passed.
+- AddressSanitizer and UndefinedBehaviorSanitizer tests passed.
