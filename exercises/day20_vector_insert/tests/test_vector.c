@@ -55,6 +55,65 @@ int main(void)
 
     assert(vector_empty(&v) == 0);
 
+    assert(vector_remove(&v,2) == 1);
+    assert(vector_size(&v)==4);
+    assert(vector_capacity(&v)==8);
+
+    int expected_remove[]={10,20,40,50};
+    for(size_t i=0;i<4;i++)
+    {
+        int actual = 0;
+        assert(vector_get(&v,i,&actual)==1);
+        assert(actual == expected_remove[i]);
+
+    }
+    assert(vector_remove(&v,4)==0);
+    assert(vector_size(&v)==4);
+
+    // 删除第一个元素
+assert(vector_remove(&v, 0) == 1);
+assert(vector_size(&v) == 3);
+
+int expected_front[] = {20, 40, 50};
+
+for (size_t i = 0; i < 3; i++)
+{
+    int actual = 0;
+    assert(vector_get(&v, i, &actual) == 1);
+    assert(actual == expected_front[i]);
+}
+
+// 删除最后一个元素
+assert(vector_remove(&v, 2) == 1);
+assert(vector_size(&v) == 2);
+
+int expected_end[] = {20, 40};
+
+for (size_t i = 0; i < 2; i++)
+{
+    int actual = 0;
+    assert(vector_get(&v, i, &actual) == 1);
+    assert(actual == expected_end[i]);
+}
+
+assert(vector_capacity(&v) == 8);
+
+// 删除剩余的最后一个元素（此时还剩20、40）
+assert(vector_remove(&v, 1) == 1);
+assert(vector_size(&v) == 1);
+
+// 删除唯一剩余的元素20
+assert(vector_remove(&v, 0) == 1);
+assert(vector_size(&v) == 0);
+assert(vector_empty(&v) == 1);
+
+// 容量不变，仍然可以继续使用
+assert(vector_capacity(&v) == 8);
+
+// 空数组不能继续删除
+assert(vector_remove(&v, 0) == 0);
+assert(vector_size(&v) == 0);
+
     vector_destroy(&v);
 
     printf("ALL tests passed!\n");

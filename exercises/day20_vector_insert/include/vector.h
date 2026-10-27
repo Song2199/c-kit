@@ -55,4 +55,6 @@ size_t vector_capacity(const IntVector *v);
 
 int vector_empty(const IntVector *v);
 
+int vector_remove(IntVector *v,size_t index);
+
 #endif

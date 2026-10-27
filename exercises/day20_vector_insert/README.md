@@ -54,3 +54,18 @@ return 1
 ### Verification
 - All assertions passed.
 - AddressSanitizer and UndefinedBehaviorSanitizer tests passed.
+## Day23 - Vector Remove
+
+### New API
+- vector_remove(): Remove an element at the specified index.
+
+### Automated Tests
+- Remove a middle element
+- Remove the first and last elements
+- Remove the final element and check empty state
+- Out-of-range removal
+- Verify size and capacity after removal
+
+### Verification
+- All assertions passed.
+- AddressSanitizer and UndefinedBehaviorSanitizer tests passed.

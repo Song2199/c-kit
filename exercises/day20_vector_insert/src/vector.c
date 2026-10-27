@@ -164,3 +164,21 @@ int vector_empty(const IntVector *v)
     }
     return v->size == 0;
 }
+int vector_remove(IntVector *v,size_t index)
+{
+    if(v== NULL || v->data == NULL)
+    {
+        return 0;
+    }
+    if(index >= v->size)
+    {
+        return 0;
+    }
+    for(size_t i=index; i < v->size;i++)
+    {
+        v->data[i] = v->data[i+1];
+    }
+    v->size--;
+    return 1;
+
+}
